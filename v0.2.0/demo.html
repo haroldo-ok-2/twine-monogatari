@@ -13,6 +13,7 @@
 		</script>
 
 		<link rel="stylesheet" href="https://haroldo-ok-2.github.io/twine-monogatari/v0.2.0/Monogatari/engine/core/monogatari.css">
+		<link rel="stylesheet" href="https://haroldo-ok-2.github.io/twine-monogatari/v0.2.0/Monogatari/style/error.css">
 		<link rel="stylesheet" href="https://haroldo-ok-2.github.io/twine-monogatari/v0.2.0/Monogatari/style/main.css">
 
 		<!-- Third Party JavaScript Libraries -->
@@ -26,6 +27,9 @@
 		
 		<!-- Customized twison -->
 		<script src="https://haroldo-ok-2.github.io/twine-monogatari/v0.2.0/twison.js"></script>
+		
+		<!-- Twine-Monogatari -->
+		<script src="https://haroldo-ok-2.github.io/twine-monogatari.js"></script>
 		
 	</head>
 	<body>
@@ -145,9 +149,20 @@ jump TestMenu</tw-passagedata></tw-storydata>
 			</visual-novel>
 		</div>
 		
+		
+		<div id="tw-errors">
+			<div class="icon" title="The script has errors">&#x26A0;&#xFE0F;</div>
+			<ul class="errors"></ul>
+		</div>
+		
 		<script>
-			window.twineStory = Twison.convert();
+			window.twineStory = TwineMonogatari.convert();
+			console.log('Parsed story', window.twineStory);
+			if (window.twineStory.errors) {
+				console.error('Story contains errors', window.twineStory.errors);
+			}
 		</script>
+		<script src="https://haroldo-ok-2.github.io/twine-monogatari/v0.2.0/Monogatari/js/options-twine.js"></script>
 		<script src="https://haroldo-ok-2.github.io/twine-monogatari/v0.2.0/Monogatari/js/options-twine.js"></script>
 		<script src="https://haroldo-ok-2.github.io/twine-monogatari/v0.2.0/Monogatari/js/storage-twine.js"></script>
 		<script src="https://haroldo-ok-2.github.io/twine-monogatari/v0.2.0/Monogatari/js/script-twine.js"></script>
